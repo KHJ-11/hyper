@@ -1,5 +1,6 @@
 package com.example.test2
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,11 +36,11 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (!android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-                        loginErrorText.setText("이메일 형식으로 입력해주세요")
+                        loginErrorText.text = "이메일 형식으로 입력해주세요"
                         loginErrorText.setTextColor(Color.RED)
                         loginEmail.setBackgroundResource(R.drawable.red_edittext)
                     } else if (loginPasswd.length() == 0) {
-                        loginErrorText.setText("비밀번호를 입력해주세요")
+                        loginErrorText.text = "비밀번호를 입력해주세요"
                         loginEmail.setBackgroundResource(R.drawable.white_edittext)
                         loginPasswd.setBackgroundResource(R.drawable.red_edittext)
                     }
@@ -64,11 +65,11 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches() || loginPasswd.length() == 0) {
-                        loginErrorText.setText("비밀번호를 입력해주세요")
+                        loginErrorText.text = "비밀번호를 입력해주세요"
                         loginErrorText.setTextColor(Color.RED)
                         loginPasswd.setBackgroundResource(R.drawable.red_edittext)
                     } else {
-                        loginErrorText.setText("")
+                        loginErrorText.text = ""
                         loginErrorText.setTextColor(Color.GRAY)
                         loginPasswd.setBackgroundResource(R.drawable.white_edittext)
                     }
@@ -89,6 +90,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun login() {
+        val intent = Intent(this, HomeActivity::class.java)
+
         binding.apply {
             loginButton.setOnClickListener {
                 val formBody = FormBody.Builder()
@@ -104,9 +107,18 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: okhttp3.Call, response: Response) {
-                        Log.e("성공","${response.body?.string()}")
-                    }
+                        var rs = response.body?.string()
 
+                        if (rs == "로그인성공") {
+                            startActivity(intent)
+                        } else if (rs == "아이디가 존재하지 않습니다.") {
+                            loginErrorText.text = "아이디가 존재하지 않습니다."
+                            loginErrorText.setTextColor(Color.RED)
+                        } else if (rs == "비밀번호가 일치하지 않습니다.") {
+                            loginErrorText.text = "비밀번호가 일치하지 않습니다."
+                            loginErrorText.setTextColor(Color.RED)
+                        }
+                    }
                 })
             }
         }
