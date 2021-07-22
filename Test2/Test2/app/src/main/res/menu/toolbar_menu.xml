@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sideMenu"
+        android:title="side"
+        android:icon="@drawable/logo"
+        app:showAsAction="always"/>
+    <group>
+        <item
+            android:id="@+id/newtask"
+            android:title="NewTask"/>
+        <item
+            android:id="@+id/logout"
+            android:title="Logout"/>
+    </group>
+</menu>

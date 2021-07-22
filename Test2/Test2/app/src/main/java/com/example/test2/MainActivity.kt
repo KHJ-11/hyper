@@ -4,12 +4,9 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import com.example.test2.databinding.ActivityMainBinding
 import okhttp3.*
 import java.io.IOException
@@ -38,11 +35,11 @@ class MainActivity : AppCompatActivity() {
                     if (!android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
                         loginErrorText.text = "이메일 형식으로 입력해주세요"
                         loginErrorText.setTextColor(Color.RED)
-                        loginEmail.setBackgroundResource(R.drawable.red_edittext)
+                        loginEmail.setBackgroundResource(R.drawable.blue_edittext)
                     } else if (loginPasswd.length() == 0) {
                         loginErrorText.text = "비밀번호를 입력해주세요"
                         loginEmail.setBackgroundResource(R.drawable.white_edittext)
-                        loginPasswd.setBackgroundResource(R.drawable.red_edittext)
+                        loginPasswd.setBackgroundResource(R.drawable.blue_edittext)
                     }
                 }
 
@@ -67,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     if (android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches() || loginPasswd.length() == 0) {
                         loginErrorText.text = "비밀번호를 입력해주세요"
                         loginErrorText.setTextColor(Color.RED)
-                        loginPasswd.setBackgroundResource(R.drawable.red_edittext)
+                        loginPasswd.setBackgroundResource(R.drawable.blue_edittext)
                     } else {
                         loginErrorText.text = ""
                         loginErrorText.setTextColor(Color.GRAY)
