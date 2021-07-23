@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProjectFragment"></activity>
+        <activity android:name=".TypeActivity"></activity>
+        <activity android:name=".ProjectFragment" />
         <activity android:name=".TypeFragment" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">

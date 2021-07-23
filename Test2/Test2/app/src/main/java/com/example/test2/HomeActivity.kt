@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -19,7 +21,11 @@ class HomeActivity : AppCompatActivity() {
         with(supportActionBar) {
             this!!.setDisplayShowTitleEnabled(false)
         }
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navi)
+        bottomNavigationView.setOnNavigationItemSelectedListener(this)
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater:MenuInflater = menuInflater
@@ -38,5 +44,17 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.home_type -> {
+                supportFragmentManager.beginTransaction().replace(R.id.home_frame, TypeFragment()).commit()
+            }
+            R.id.home_project -> {
+                supportFragmentManager.beginTransaction().replace(R.id.home_frame, ProjectFragment()).commit()
+            }
+        }
+        return true
     }
 }
