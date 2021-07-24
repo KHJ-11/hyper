@@ -1,6 +1,6 @@
 package com.example.test2
 
-data class ItemData(
+data class Item(
     val itemImage : Int,
     var itemName : String = "",
     val itemToolImage : Int,

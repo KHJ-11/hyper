@@ -1,6 +1,5 @@
 package com.example.test2
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter(private val itemList : MutableList<ItemData>)
+class RecyclerViewAdapter(
+    private val itemList : MutableList<Item>)
     : RecyclerView.Adapter<RecyclerViewAdapter.ItemHolder>() {
 
     inner class ItemHolder(rowRoot: View) : RecyclerView.ViewHolder(rowRoot) {
@@ -27,9 +27,15 @@ class RecyclerViewAdapter(private val itemList : MutableList<ItemData>)
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ItemHolder, position: Int) {
         val itemData = itemList[position]
         with(holder) {
-
+            itemIV.setImageResource(itemData.itemImage)
+            itemTV.text = itemData.itemName
+            itemIV2.setImageResource(itemData.itemToolImage)
+            itemTV2.text = itemData.itemToolName
+            itemText.text = itemData.itemText
         }
     }
 
-    override fun getItemCount() = itemList.size
+    override fun getItemCount(): Int {
+        return itemList.size
+    }
 }
