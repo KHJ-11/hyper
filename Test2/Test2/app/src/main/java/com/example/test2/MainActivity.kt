@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     .add("member_email", "${loginEmail.text}")
                     .add("member_passwd","${loginPasswd.text}").build()
 
-                val request = Request.Builder().url("http://172.30.1.31:8080/hyper/member").post(formBody).build()
+                val request = Request.Builder().url("http://192.168.35.158:8080/hyper/member").post(formBody).build()
                 val okHttpClient = OkHttpClient.Builder().connectTimeout(5, TimeUnit.SECONDS)
 
                 okHttpClient.build().newCall(request).enqueue(object : Callback {
