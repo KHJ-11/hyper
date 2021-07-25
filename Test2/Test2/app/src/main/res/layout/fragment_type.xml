@@ -3,36 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TypeFragment"
     android:orientation="vertical">
 
-<!--    <com.google.android.material.tabs.TabLayout-->
-<!--        android:id="@+id/tab_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:id="@+id/item_inbox"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Inbox"/>-->
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:id="@+id/item_archive"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Archive"/>-->
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:id="@+id/item_starred"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Starred"/>-->
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/item_inbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inbox"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/item_archive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Archive"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/item_starred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Starred"/>
 
-<!--    </com.google.android.material.tabs.TabLayout>-->
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

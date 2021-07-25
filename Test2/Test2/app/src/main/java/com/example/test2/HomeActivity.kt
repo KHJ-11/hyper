@@ -1,5 +1,7 @@
 package com.example.test2
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -15,6 +17,9 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        if(savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().add(R.id.home_frame, TypeFragment()).commit()
+        }
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)

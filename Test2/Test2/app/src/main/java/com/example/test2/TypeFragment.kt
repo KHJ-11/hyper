@@ -1,26 +1,31 @@
 package com.example.test2
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.test2.databinding.FragmentTypeBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
 
 class TypeFragment : Fragment() {
 
-    private lateinit var binding: FragmentTypeBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentTypeBinding.inflate(layoutInflater)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_type,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding.itemRecyclerview) {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = RecyclerViewAdapter(itemData())
+
+        val itemRV = getView()?.findViewById<RecyclerView>(R.id.item_recyclerview)
+        with(itemRV) {
+            this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            this?.adapter = RecyclerViewAdapter(itemData())
+
         }
     }
 

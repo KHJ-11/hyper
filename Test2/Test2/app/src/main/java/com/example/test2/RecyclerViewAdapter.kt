@@ -33,6 +33,7 @@ class RecyclerViewAdapter(
             itemTV2.text = itemData.itemToolName
             itemText.text = itemData.itemText
         }
+
     }
 
     override fun getItemCount(): Int {
