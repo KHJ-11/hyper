@@ -59,6 +59,12 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
             R.id.home_project -> {
                 supportFragmentManager.beginTransaction().replace(R.id.home_frame, ProjectFragment()).commit()
             }
+            R.id.home_search -> {
+                supportFragmentManager.beginTransaction().replace(R.id.home_frame, SearchFragment()).commit()
+            }
+            R.id.home_my -> {
+                supportFragmentManager.beginTransaction().replace(R.id.home_frame, MyFragment()).commit()
+            }
         }
         return true
     }

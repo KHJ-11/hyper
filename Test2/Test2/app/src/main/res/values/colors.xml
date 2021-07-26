@@ -11,4 +11,5 @@
     <color name="gray">#808080</color>
     <color name="grayW">#C8C8C8</color>
     <color name="sky">#00bfff</color>
+    <color name="grayWW">#E2FFFFFF</color>
 </resources>

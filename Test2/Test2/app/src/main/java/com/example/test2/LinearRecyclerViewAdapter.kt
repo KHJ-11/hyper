@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter(
+class LinearRecyclerViewAdapter(
     private val itemList : MutableList<Item>)
-    : RecyclerView.Adapter<RecyclerViewAdapter.ItemHolder>() {
+    : RecyclerView.Adapter<LinearRecyclerViewAdapter.ItemHolder>() {
 
     inner class ItemHolder(rowRoot: View) : RecyclerView.ViewHolder(rowRoot) {
         val itemIV : ImageView = rowRoot.findViewById(R.id.profile_image)
@@ -19,12 +19,12 @@ class RecyclerViewAdapter(
         val itemText : TextView = rowRoot.findViewById(R.id.item_text)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ItemHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinearRecyclerViewAdapter.ItemHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.type_item, parent, false)
         return ItemHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewAdapter.ItemHolder, position: Int) {
+    override fun onBindViewHolder(holder: LinearRecyclerViewAdapter.ItemHolder, position: Int) {
         val itemData = itemList[position]
         with(holder) {
             itemIV.setImageResource(itemData.itemImage)
