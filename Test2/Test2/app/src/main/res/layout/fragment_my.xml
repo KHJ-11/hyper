@@ -143,7 +143,8 @@
                 android:layout_height="wrap_content"
                 android:text="a2@gmail.com"
                 android:textSize="15sp"
-                android:focusableInTouchMode="false"/>
+                android:focusableInTouchMode="false"
+                android:backgroundTint="@color/sky"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -154,7 +155,8 @@
                 android:layout_height="wrap_content"
                 android:hint="leave it blank if you don't want to change it"
                 android:textSize="15sp"
-                android:password="true"/>
+                android:password="true"
+                android:backgroundTint="@color/sky"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -164,7 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:password="true"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:backgroundTint="@color/sky"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -175,7 +178,8 @@
                 android:layout_height="wrap_content"
                 android:hint="we need your current password to confirm your changes"
                 android:textSize="15sp"
-                android:password="true"/>
+                android:password="true"
+                android:backgroundTint="@color/sky"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,7 +205,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="hj"
-                android:focusableInTouchMode="false"/>
+                android:focusableInTouchMode="false"
+                android:backgroundTint="@color/sky"/>
 
             <TextView
                 android:layout_width="match_parent"

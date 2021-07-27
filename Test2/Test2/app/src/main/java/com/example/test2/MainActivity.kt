@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.loginButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
         edit()
         login()
     }
@@ -108,6 +113,8 @@ class MainActivity : AppCompatActivity() {
 
                         if (rs == "로그인성공") {
                             startActivity(intent)
+                            loginEmail.text = null
+                            loginPasswd.text = null
                         } else if (rs == "아이디가 존재하지 않습니다.") {
                             loginErrorText.text = "아이디가 존재하지 않습니다."
                             loginErrorText.setTextColor(Color.RED)

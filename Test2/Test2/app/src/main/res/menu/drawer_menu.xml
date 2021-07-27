@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item1"
-        android:title="item1"
-        android:icon="@drawable/logo"/>
+        android:title="이용약관"/>
     <item
         android:id="@+id/item2"
-        android:title="item2"
-        android:icon="@drawable/logo"/>
+        android:title="개인정보 처리방침"/>
     <item
         android:id="@+id/item3"
-        android:title="item3"
-        android:icon="@drawable/logo"/>
+        android:title="도움말"/>
+    <item
+        android:id="@+id/item4"
+        android:title="문의하기"/>
+    <item
+        android:id="@+id/item5"
+        android:title="버전정보"/>
 </menu>

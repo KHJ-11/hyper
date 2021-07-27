@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.EditText
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.test2.databinding.FragmentProjectBinding
 
-class ProjectFragment : Fragment(), View.OnClickListener {
-
+class ProjectFragment : Fragment() {
     private var isFabOpen = false
+    val list = mutableListOf<Project>()
 
     private lateinit var binding: FragmentProjectBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,35 +26,28 @@ class ProjectFragment : Fragment(), View.OnClickListener {
             adapter = GridRecyclerViewAdapter(projectData())
         }
 
-        binding.apply {
-            fab.setOnClickListener(this@ProjectFragment)
-            fabCreate.setOnClickListener(this@ProjectFragment)
-            fabDelete.setOnClickListener(this@ProjectFragment)
+        val dialogView = layoutInflater.inflate(R.layout.project_dialog, null)
+        val dialogEditText = dialogView.findViewById<EditText>(R.id.popup_edit)
+        val dialogCreate = dialogView.findViewById<TextView>(R.id.popup_ok)
+        val dialogCancel = dialogView.findViewById<TextView>(R.id.popup_cancel)
+        val builder = AlertDialog.Builder(context)
+
+        binding.fab.setOnClickListener {
+            anim()
+        }
+        binding.fabCreate.setOnClickListener {
+            builder.setView(dialogView).show()
+            dialogCreate.setOnClickListener {
+                list.add(Project(R.drawable.ic_folder, "${dialogEditText.text.toString()}"))
+                binding.projectRV.adapter?.notifyDataSetChanged()
+                dialogEditText.text = null
+            }
+            dialogCancel.setOnClickListener {
+
+            }
         }
 
         return binding.root
-    }
-
-    override fun onClick(v: View?) {
-        binding.apply {
-            when(v?.id) {
-                fab.id -> {
-                    anim()
-                }
-                fabCreate.id -> {
-                    val builder = AlertDialog.Builder(context)
-                    val popupView = layoutInflater.inflate(R.layout.project_dialog, null)
-                    with(builder) {
-                        setView(popupView)
-                        show()
-                    }
-
-                }
-                fabDelete.id -> {
-
-                }
-            }
-        }
     }
 
     private fun anim() {
@@ -77,7 +72,6 @@ class ProjectFragment : Fragment(), View.OnClickListener {
     }
 
     private fun projectData() : MutableList<Project> {
-        val list = mutableListOf<Project>()
         return list.apply {
             add(
                 Project(R.drawable.ic_folder,

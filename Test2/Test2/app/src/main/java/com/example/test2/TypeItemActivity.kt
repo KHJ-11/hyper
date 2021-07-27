@@ -36,8 +36,9 @@ class TypeItemActivity : AppCompatActivity() {
         }
 
         binding.commentButton.setOnClickListener {
-            list.add(Comment(R.drawable.ic_account_circle_128_28129,"${binding.commentEditText.text.toString()}"))
+            list.add(Comment(R.drawable.ic_icon_account4,"${binding.commentEditText.text.toString()}"))
             binding.commentRV.adapter?.notifyDataSetChanged()
+            binding.commentEditText.text = null
         }
     }
 
@@ -54,7 +55,7 @@ class TypeItemActivity : AppCompatActivity() {
 
     private fun commentData() : MutableList<Comment> {
         return list.apply {
-            add(Comment(R.drawable.ic_account_circle_128_28129, "네"))
+            add(Comment(R.drawable.ic_icon_account4, "네"))
         }
     }
 }

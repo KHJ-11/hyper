@@ -9,13 +9,17 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSelectedListener {
+    val list = mutableListOf<Item>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -41,6 +45,11 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val itemRV = findViewById<RecyclerView>(R.id.item_recyclerview)
+        with(itemRV) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = LinearRecyclerViewAdapter(itemData())
+        }
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawLayout_main)
         when(item.itemId) {
             R.id.logout -> {
@@ -50,10 +59,25 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
                 drawerLayout.openDrawer(GravityCompat.END)
             }
             R.id.newtask -> {
+                val dialogView = layoutInflater.inflate(R.layout.type_dialog, null)
+                val dialogEditText = dialogView.findViewById<EditText>(R.id.popup_edit2)
+                val dialogCreate = dialogView.findViewById<TextView>(R.id.popup_ok2)
+                val dialogCancel = dialogView.findViewById<TextView>(R.id.popup_cancel2)
                 val builder = AlertDialog.Builder(this)
-                val popopTask = layoutInflater.inflate(R.layout.type_dialog, null)
-                with(builder) {
-                    setView(popopTask).show()
+                builder.setView(dialogView).show()
+
+                dialogCreate.setOnClickListener {
+                    list.add(Item(
+                        R.drawable.ic_icon_account5,
+                        R.drawable.logo2,
+                        "Hyperinbox",
+                        "${dialogEditText.text.toString()}"))
+                    itemRV.adapter?.notifyDataSetChanged()
+                    dialogEditText.text = null
+
+                }
+                dialogCancel.setOnClickListener {
+
                 }
             }
         }
@@ -76,5 +100,52 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
             }
         }
         return true
+    }
+
+    private fun itemData(): MutableList<Item> {
+        return list.apply {
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "Slack",
+                    " 네 오늘 미팅 비대면으로 진행하겠습니다. 이따 오후에 미팅 링크 미리 전해드릴테니 접속 환경 점검해주시고요. "))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "Slack",
+                    "오늘 미팅은 오후 5시 정도에 괜찮으신가요? @here"))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "자리들 잡으셨나요? 미팅 링크 곧 공유드릴게요."))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "인프런 계정 정보 알려드려요. 계정이 두개니 하나씩 쓰시면 될 것 같습니다. 각자 어떤 계정 쓸건지 알려주세요. "))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "어제 외부 일정이 많아서 올려주신거 확인 못했는데, 오늘 확인해볼게요!"))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "네 확인해볼게요. 업데이트하신거 있을때는 태그해서 불러주세요 @Arthur Kim 이렇게"))
+            add(
+                Item(
+                    R.drawable.ic_icon_account3,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "네! 제가 어제 일이 좀 길어져서 확인을 못했어요. 오늘 중 업데이트 드릴게요!"))
+        }
     }
 }

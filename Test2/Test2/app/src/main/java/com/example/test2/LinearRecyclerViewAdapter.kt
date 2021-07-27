@@ -1,9 +1,11 @@
 package com.example.test2
 
 import android.content.Intent
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,8 @@ class LinearRecyclerViewAdapter(
         val itemIV2 : ImageView = rowRoot.findViewById(R.id.tool_image)
         val itemTV2 : TextView = rowRoot.findViewById(R.id.tool_text)
         val itemText : TextView = rowRoot.findViewById(R.id.item_text)
+
+        val checkBox : CheckBox = rowRoot.findViewById(R.id.check_todolist)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinearRecyclerViewAdapter.ItemHolder {
@@ -33,6 +37,13 @@ class LinearRecyclerViewAdapter(
             itemIV2.setImageResource(itemData.itemToolImage)
             itemTV2.text = itemData.itemToolName
             itemText.text = itemData.itemText
+        }
+        holder.checkBox.setOnClickListener {
+            if (holder.checkBox.isChecked) {
+                holder.itemText.paintFlags = holder.itemText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            } else {
+                holder.itemText.paintFlags = holder.itemText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
         }
 
         holder.itemView.setOnClickListener {
