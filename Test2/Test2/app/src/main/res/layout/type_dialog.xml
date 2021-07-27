@@ -3,13 +3,12 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp"
-    android:id="@+id/project_popup">
+    android:padding="5dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add a new project"
+        android:text="New task"
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:textStyle="bold"/>
@@ -23,7 +22,7 @@
         android:id="@+id/popup_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Project name"/>
+        android:hint="Task name"/>
 
     <LinearLayout
         android:layout_width="match_parent"

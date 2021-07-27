@@ -8,6 +8,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -46,6 +48,13 @@ class HomeActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
             }
             R.id.sideMenu -> {
                 drawerLayout.openDrawer(GravityCompat.END)
+            }
+            R.id.newtask -> {
+                val builder = AlertDialog.Builder(this)
+                val popopTask = layoutInflater.inflate(R.layout.type_dialog, null)
+                with(builder) {
+                    setView(popopTask).show()
+                }
             }
         }
         return super.onOptionsItemSelected(item)

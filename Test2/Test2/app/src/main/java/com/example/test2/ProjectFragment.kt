@@ -46,6 +46,7 @@ class ProjectFragment : Fragment(), View.OnClickListener {
                         setView(popupView)
                         show()
                     }
+
                 }
                 fabDelete.id -> {
 

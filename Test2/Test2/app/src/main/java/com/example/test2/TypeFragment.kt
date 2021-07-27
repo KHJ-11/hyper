@@ -1,10 +1,13 @@
 package com.example.test2
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -21,8 +24,17 @@ class TypeFragment : Fragment() {
         with(itemRV) {
             this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             this?.adapter = LinearRecyclerViewAdapter(itemData())
-
         }
+
+//        val itemText = view.findViewById<TextView>(R.id.item_text)
+//        val check = view.findViewById<CheckBox>(R.id.check_todolist)
+//        check.setOnClickListener {
+//            if (check.isChecked) {
+//                itemText.paintFlags = itemText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+//            } else {
+//                itemText.paintFlags = itemText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG.inv()
+//            }
+//        }
     }
 
     private fun itemData(): MutableList<Item> {
@@ -31,31 +43,45 @@ class TypeFragment : Fragment() {
             add(
                 Item(
                     R.drawable.ic_account_circle_128_28129,
-                    "홍길동",
                     R.drawable.ic__slack_icon,
                     "slack",
-                    "안녕하세요 안드로이드 개발팀입니다. 현재까지 완료된 작업 업데이트 부탁드리겠습니다. 감사합니다."))
+                    " 네 오늘 미팅 비대면으로 진행하겠습니다. 이따 오후에 미팅 링크 미리 전해드릴테니 접속 환경 점검해주시고요. "))
             add(
                 Item(
                     R.drawable.ic_account_circle_128_28129,
-                    "유관순",
-                    R.drawable.ic_figma_lcon,
-                    "figma",
-                    "디자인 결과물 공유드립니다. 확인하시고 결제부탁드립니다."))
-            add(
-                Item(
-                    R.drawable.ic_account_circle_128_28129,
-                    "이순신",
                     R.drawable.ic__slack_icon,
                     "slack",
-                    "개발자료 보내드립니다. 회의시간에 늦지 않게 해주세요."))
+                    "오늘 미팅은 오후 5시 정도에 괜찮으신가요? @here"))
             add(
                 Item(
                     R.drawable.ic_account_circle_128_28129,
-                    "이순신",
-                    R.drawable.ic_github_icon,
-                    "github",
-                    "My Application.kt"))
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "자리들 잡으셨나요? 미팅 링크 곧 공유드릴게요."))
+            add(
+                Item(
+                    R.drawable.ic_account_circle_128_28129,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "인프런 계정 정보 알려드려요. 계정이 두개니 하나씩 쓰시면 될 것 같습니다. 각자 어떤 계정 쓸건지 알려주세요. "))
+            add(
+                Item(
+                    R.drawable.ic_account_circle_128_28129,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "어제 외부 일정이 많아서 올려주신거 확인 못했는데, 오늘 확인해볼게요!"))
+            add(
+                Item(
+                    R.drawable.ic_account_circle_128_28129,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "네 확인해볼게요. 업데이트하신거 있을때는 태그해서 불러주세요 @Arthur Kim 이렇게"))
+            add(
+                Item(
+                    R.drawable.ic_account_circle_128_28129,
+                    R.drawable.ic__slack_icon,
+                    "slack",
+                    "네! 제가 어제 일이 좀 길어져서 확인을 못했어요. 오늘 중 업데이트 드릴게요!"))
         }
     }
 }
