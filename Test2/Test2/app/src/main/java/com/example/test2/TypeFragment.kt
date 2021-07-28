@@ -12,6 +12,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout
 import org.w3c.dom.Text
 
 class TypeFragment : Fragment() {
@@ -28,7 +30,49 @@ class TypeFragment : Fragment() {
             this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             this.adapter = LinearRecyclerViewAdapter(itemData())
         }
+
+        val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
+        val tabInbox = view.findViewById<TabItem>(R.id.item_inbox)
+        val tabArchive = view.findViewById<TabItem>(R.id.item_archive)
+        val tabStarred = view.findViewById<TabItem>(R.id.item_starred)
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when(tab?.position) {
+                    0 -> {
+
+                    }
+                    1 -> {
+//                        itemRV.layoutManager =
+//                            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//                        itemRV.adapter = LinearRecyclerViewAdapter(itemData1())
+//                        itemRV?.adapter?.notifyDataSetChanged()
+                    }
+                    2 -> {
+
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
     }
+
+//    private fun itemData1(): MutableList<Item> {
+//        return list.apply {
+//            add(
+//                Item(
+//                    R.drawable.ic_icon_account3,
+//                    R.drawable.ic__slack_icon,
+//                    "Slack",
+//                    " 네 오늘 미팅 비대면으로 진행하겠습니다. 이따 오후에 미팅 링크 미리 전해드릴테니 접속 환경 점검해주시고요. "))
+//        }
+//    }
 
     private fun itemData(): MutableList<Item> {
         return list.apply {
@@ -48,31 +92,31 @@ class TypeFragment : Fragment() {
                 Item(
                     R.drawable.ic_icon_account3,
                     R.drawable.ic__slack_icon,
-                    "slack",
+                    "Slack",
                     "자리들 잡으셨나요? 미팅 링크 곧 공유드릴게요."))
             add(
                 Item(
                     R.drawable.ic_icon_account3,
                     R.drawable.ic__slack_icon,
-                    "slack",
+                    "Slack",
                     "인프런 계정 정보 알려드려요. 계정이 두개니 하나씩 쓰시면 될 것 같습니다. 각자 어떤 계정 쓸건지 알려주세요. "))
             add(
                 Item(
                     R.drawable.ic_icon_account3,
                     R.drawable.ic__slack_icon,
-                    "slack",
+                    "Slack",
                     "어제 외부 일정이 많아서 올려주신거 확인 못했는데, 오늘 확인해볼게요!"))
             add(
                 Item(
                     R.drawable.ic_icon_account3,
                     R.drawable.ic__slack_icon,
-                    "slack",
+                    "Slack",
                     "네 확인해볼게요. 업데이트하신거 있을때는 태그해서 불러주세요 @Arthur Kim 이렇게"))
             add(
                 Item(
                     R.drawable.ic_icon_account3,
                     R.drawable.ic__slack_icon,
-                    "slack",
+                    "Slack",
                     "네! 제가 어제 일이 좀 길어져서 확인을 못했어요. 오늘 중 업데이트 드릴게요!"))
         }
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/home_type"
-        android:title="Type"
+        android:title="Inbox"
         android:icon="@drawable/ic_baseline_all_inbox_24"/>
     <item android:id="@+id/home_project"
         android:title="Project"

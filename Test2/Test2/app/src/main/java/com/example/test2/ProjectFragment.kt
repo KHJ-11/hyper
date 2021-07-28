@@ -1,6 +1,7 @@
 package com.example.test2
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,20 +31,22 @@ class ProjectFragment : Fragment() {
         val dialogEditText = dialogView.findViewById<EditText>(R.id.popup_edit)
         val dialogCreate = dialogView.findViewById<TextView>(R.id.popup_ok)
         val dialogCancel = dialogView.findViewById<TextView>(R.id.popup_cancel)
-        val builder = AlertDialog.Builder(context)
+        val builder = AlertDialog.Builder(context).create()
 
         binding.fab.setOnClickListener {
             anim()
         }
         binding.fabCreate.setOnClickListener {
-            builder.setView(dialogView).show()
+            builder.setView(dialogView)
+            builder.show()
             dialogCreate.setOnClickListener {
                 list.add(Project(R.drawable.ic_folder, "${dialogEditText.text.toString()}"))
                 binding.projectRV.adapter?.notifyDataSetChanged()
                 dialogEditText.text = null
+                builder.dismiss()
             }
             dialogCancel.setOnClickListener {
-
+                builder.dismiss()
             }
         }
 
