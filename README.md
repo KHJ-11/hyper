@@ -6,7 +6,7 @@
 
 **디자인 협업 소프트웨어 하이퍼인박스 모바일버전**
 
-slack, figma, github등의 협업 툴을 한곳에서 사용할 수 있는 협업 소프트웨어\
+slack, figma, github등의 협업 툴을 한곳에서 사용할 수 있는\
 기존의 하이퍼인박스 데스크톱 앱을 모바일버전으로 제작 
 * 로그인
 * 인박스
@@ -15,6 +15,20 @@ slack, figma, github등의 협업 툴을 한곳에서 사용할 수 있는 협�
 * 마이페이지
 ---
 ## [ Preview ]
-파이널 챌린지 Pt_.pdf
+[하이퍼인박스]()
 ![hyper](https://user-images.githubusercontent.com/72050086/130312503-091b4aa1-80f8-4142-8bdd-9bc2a3eca42c.png)
-
+---
+## [ 개발환경 ]
+* Language : Kotlin, Java
+* Front-end : Android studio
+* back-end : Spring boot, mySql, Tomcat
+* Design : Figma
+---
+## [ 라이브러리 ]
+* OkHttp
+* CardView
+---
+## [ 역할 ]
+* Plan
+* Design
+* Development
