@@ -32,7 +32,7 @@ slack, figma, github등의 협업 툴을 한곳에서 사용할 수 있는\
 * Plan
 * Design
 * Development
-* ---
+---
 ## [ 구현 ]
 * 로그인
 
